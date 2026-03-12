@@ -1,0 +1,21 @@
+{
+    "@@locale": "ar",
+    "newsApp": "تطبيق الأخبار",
+    "helloWorld": "مرحبا بالعالم",
+    "goodMorningHereIsSomeNewsForYou": "صباح الخير،\nإليك بعض الأخبار لك",
+    "viewAll": "عرض الكل",
+    "general": "عام",
+    "business": "أعمال",
+    "sports": "رياضة",
+    "technology": "تكنولوجيا",
+    "entertainment": "ترفيه",
+    "health": "صحة",
+    "science": "العلم",
+    "theme": "المظهر",
+    "gotohome": "اذهب إلى الصفحة الرئيسية",
+    "light": "فاتح",
+    "dark": "داكن",
+    "language": "اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+}
