@@ -205,6 +205,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Arabic'**
   String get arabic;
+
+  /// No description provided for @errorLoadingNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading news'**
+  String get errorLoadingNews;
+
+  /// No description provided for @noNewsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No news available'**
+  String get noNewsAvailable;
 }
 
 class _AppLocalizationsDelegate

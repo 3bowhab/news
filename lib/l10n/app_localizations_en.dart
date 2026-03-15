@@ -62,4 +62,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get arabic => 'Arabic';
+
+  @override
+  String get errorLoadingNews => 'Error loading news';
+
+  @override
+  String get noNewsAvailable => 'No news available';
 }

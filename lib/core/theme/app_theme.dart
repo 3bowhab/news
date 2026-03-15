@@ -49,9 +49,7 @@ class AppTheme {
     ),
     textTheme: TextTheme(
       headlineLarge: TextStyle(color: AppColors.mainDark),
-      headlineMedium: TextStyle(
-        color: AppColors.mainDark,
-      ),
+      headlineMedium: TextStyle(color: AppColors.mainDark),
       headlineSmall: TextStyle(color: AppColors.mainDark),
       labelLarge: TextStyle(color: AppColors.mainDark),
       titleLarge: TextStyle(color: AppColors.mainDark),
@@ -65,9 +63,7 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.main,
         foregroundColor: AppColors.mainDark,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         minimumSize: Size(double.infinity, 48.height),
       ),
     ),
@@ -76,10 +72,18 @@ class AppTheme {
       dividerHeight: 0,
       indicatorColor: AppColors.mainDark,
       unselectedLabelColor: AppColors.mainDark,
-      labelStyle: TextStyle(fontWeight: FontWeight.bold, color: AppColors.mainDark, fontSize: 16),
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: AppColors.mainDark,
+        fontSize: 16,
+      ),
     ),
 
     iconTheme: const IconThemeData(color: AppColors.main, size: 26),
+
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.mainDark,
+    ),
 
     dividerTheme: DividerThemeData(
       color: AppColors.mainDark,
@@ -113,7 +117,6 @@ class AppTheme {
       }),
     ),
   );
-
 
   // Dark Theme
   static ThemeData get darkTheme => ThemeData(
@@ -153,7 +156,7 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.main),
       bodySmall: TextStyle(color: AppColors.main),
     ),
-  
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.mainDark,
@@ -167,10 +170,18 @@ class AppTheme {
       tabAlignment: TabAlignment.start,
       dividerHeight: 0,
       unselectedLabelColor: AppColors.main,
-      labelStyle: TextStyle(fontWeight: FontWeight.bold, color: AppColors.main, fontSize: 16),
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: AppColors.main,
+        fontSize: 16,
+      ),
     ),
 
     iconTheme: const IconThemeData(color: AppColors.mainDark, size: 26),
+
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.main,
+    ),
 
     dividerTheme: DividerThemeData(
       color: AppColors.main,

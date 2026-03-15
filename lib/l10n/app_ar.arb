@@ -17,5 +17,7 @@
     "dark": "داكن",
     "language": "اللغة",
     "english": "الإنجليزية",
-    "arabic": "العربية"
+    "arabic": "العربية",
+    "errorLoadingNews": "حدث خطأ أثناء تحميل الأخبار",
+    "noNewsAvailable": "لا توجد أخبار متاحة"
 }

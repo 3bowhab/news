@@ -62,4 +62,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get arabic => 'العربية';
+
+  @override
+  String get errorLoadingNews => 'حدث خطأ أثناء تحميل الأخبار';
+
+  @override
+  String get noNewsAvailable => 'لا توجد أخبار متاحة';
 }

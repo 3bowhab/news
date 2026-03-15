@@ -35,5 +35,9 @@
   "english": "English",
   "@english": {},
   "arabic": "Arabic",
-  "@arabic": {}
+  "@arabic": {},
+  "errorLoadingNews": "Error loading news",
+  "@errorLoadingNews": {},
+  "noNewsAvailable": "No news available",
+  "@noNewsAvailable": {}
 }

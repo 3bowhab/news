@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news/models/news_source_model.dart';
+import 'package:news/api/news_sources/source.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool isHome;
-  const CustomAppBar({super.key, required this.title, this.isHome = false});
+  final List<Source>? newsSources;
+  const CustomAppBar({super.key, required this.title, this.isHome = false, this.newsSources});
 
   @override
   Size get preferredSize => Size.fromHeight(!isHome ? 100 : kToolbarHeight);
@@ -25,9 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: !isHome
           ? TabBar(
               isScrollable: true,
-              tabs: NewsSourceModel.source
-                  .map((source) => Tab(text: source.title))
-                  .toList(),
+              tabs: newsSources?.map((source) => Tab(text: source.name)).toList() ?? [],
             )
           : null,
     );
