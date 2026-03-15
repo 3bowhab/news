@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news/api/news_sources/source.dart';
+import 'package:news/models/news_sources/source.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
           ),
       ],
-      bottom: !isHome
+      bottom: !isHome 
           ? TabBar(
               isScrollable: true,
               tabs: newsSources?.map((source) => Tab(text: source.name)).toList() ?? [],

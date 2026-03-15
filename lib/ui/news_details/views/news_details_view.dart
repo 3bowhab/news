@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/api/api_manager.dart';
-import 'package:news/api/news_sources/news_sources.dart';
+import 'package:news/models/news_sources/news_sources.dart';
 import 'package:news/l10n/app_localizations.dart';
 import 'package:news/ui/app_bar/custom_app_bar.dart';
 import 'package:news/ui/app_bar/custom_drawer.dart';
@@ -48,12 +48,24 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
           );
         } else if (snapshot.hasError) {
           return Scaffold(
+            appBar: CustomAppBar(
+              title: AppLocalizations.of(context)!.helloWorld,
+              isHome: true,
+            ),
+            drawer: CustomDrawer(),
             body: Center(
-              child: Text(AppLocalizations.of(context)!.errorLoadingNews),
+              child: Text(
+                snapshot.error.toString().replaceAll('Exception: ', ''),
+              ),
             ),
           );
         } else {
           return Scaffold(
+            appBar: CustomAppBar(
+              title: AppLocalizations.of(context)!.helloWorld,
+              isHome: true,
+            ),
+            drawer: CustomDrawer(),
             body: Center(
               child: Text(AppLocalizations.of(context)!.noNewsAvailable),
             ),

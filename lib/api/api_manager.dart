@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:news/api/api_constants.dart';
-import 'package:news/api/news_sources/news_sources.dart';
+import 'package:news/models/api_error/api_error.dart';
+import 'package:news/models/news_sources/news_sources.dart';
 
 class ApiManager {
   final dio = Dio(
@@ -20,7 +21,14 @@ class ApiManager {
       );
       return NewsSources.fromJson(response.data);
     } on DioException catch (e) {
-      throw Exception('Failed to load news sources: ${e.message}');
+      if (e.response?.data != null) {
+        final apiError = ApiError.fromJson(e.response!.data);
+        throw Exception(apiError.message ?? 'Unknown Error from Server');
+      } else {
+        throw Exception(e.message ?? 'Network Error');
+      }
+    } catch (e) {
+      throw Exception('Unexpected Error: $e');
     }
   }
 }
