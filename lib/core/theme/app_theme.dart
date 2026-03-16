@@ -61,10 +61,10 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.main,
-        foregroundColor: AppColors.mainDark,
+        backgroundColor: AppColors.mainDark,
+        foregroundColor: AppColors.main,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        minimumSize: Size(double.infinity, 48.height),
+        // minimumSize: Size(double.infinity, 48.height),
       ),
     ),
     tabBarTheme: TabBarThemeData(
@@ -159,10 +159,10 @@ class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.mainDark,
-        foregroundColor: AppColors.main,
+        backgroundColor: AppColors.main,
+        foregroundColor: AppColors.mainDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        minimumSize: Size(double.infinity, 48.height),
+        // minimumSize: Size(double.infinity, 48.height),
       ),
     ),
 

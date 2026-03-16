@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/api/api_manager.dart';
+import 'package:news/core/constants/app_padding.dart';
+import 'package:news/core/extensions/responsive_sized_box_extension.dart';
 import 'package:news/models/news_sources/news_sources.dart';
 import 'package:news/l10n/app_localizations.dart';
 import 'package:news/ui/app_bar/custom_app_bar.dart';
@@ -7,7 +9,7 @@ import 'package:news/ui/app_bar/custom_drawer.dart';
 import 'package:news/ui/news_details/widgets/news_list_view.dart';
 
 class NewsDetailsView extends StatefulWidget {
-  const NewsDetailsView({super.key,});
+  const NewsDetailsView({super.key});
 
   @override
   State<NewsDetailsView> createState() => _NewsDetailsViewState();
@@ -37,8 +39,12 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
                 newsSources: newsSources,
               ),
               drawer: CustomDrawer(),
-              body: TabBarView(
-                children: newsSources.map((e) => NewsListView(sourceId: e.id)).toList(),
+              body: SafeArea(
+                child: TabBarView(
+                  children: newsSources
+                      .map((e) => NewsListView(sourceId: e.id))
+                      .toList(),
+                ),
               ),
             ),
           );
@@ -47,31 +53,45 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
             body: Center(child: CircularProgressIndicator()),
           );
         } else if (snapshot.hasError) {
-          return Scaffold(
-            appBar: CustomAppBar(
-              title: AppLocalizations.of(context)!.helloWorld,
-              isHome: true,
-            ),
-            drawer: CustomDrawer(),
-            body: Center(
-              child: Text(
-                snapshot.error.toString().replaceAll('Exception: ', ''),
-              ),
-            ),
+          return errorSection(
+            context,
+            snapshot.error.toString().replaceAll('Exception: ', ''),
           );
         } else {
-          return Scaffold(
-            appBar: CustomAppBar(
-              title: AppLocalizations.of(context)!.helloWorld,
-              isHome: true,
-            ),
-            drawer: CustomDrawer(),
-            body: Center(
-              child: Text(AppLocalizations.of(context)!.noNewsAvailable),
-            ),
+          return errorSection(
+            context,
+            AppLocalizations.of(context)!.noNewsAvailable,
           );
         }
       },
+    );
+  }
+
+  Scaffold errorSection(BuildContext context, String errorMessage) {
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: AppLocalizations.of(context)!.helloWorld,
+        isHome: true,
+      ),
+      drawer: CustomDrawer(),
+      body: Padding(
+        padding: AppPadding.view,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(errorMessage),
+            16.verticalSizedBox,
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  newsSource = ApiManager().getNewssources();
+                });
+              },
+              child: const Text('Retry'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
