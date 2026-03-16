@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:news/api/api_constants.dart';
 import 'package:news/models/api_error/api_error.dart';
+import 'package:news/models/news_respnse/news_respnse.dart';
 import 'package:news/models/news_sources/news_sources.dart';
 
 class ApiManager {
@@ -20,6 +21,25 @@ class ApiManager {
         queryParameters: {'category': category},
       );
       return NewsSources.fromJson(response.data);
+    } on DioException catch (e) {
+      if (e.response?.data != null) {
+        final apiError = ApiError.fromJson(e.response!.data);
+        throw Exception(apiError.message ?? 'Unknown Error from Server');
+      } else {
+        throw Exception(e.message ?? 'Network Error');
+      }
+    } catch (e) {
+      throw Exception('Unexpected Error: $e');
+    }
+  }
+
+  Future<NewsRespnse> getNewsBySource(String sourceId) async {
+    try {
+      final response = await dio.get(
+        '/v2/top-headlines',
+        queryParameters: {'sources': sourceId},
+      );
+      return NewsRespnse.fromJson(response.data);
     } on DioException catch (e) {
       if (e.response?.data != null) {
         final apiError = ApiError.fromJson(e.response!.data);

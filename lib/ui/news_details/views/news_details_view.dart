@@ -28,7 +28,7 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
       future: newsSource,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final newsSources = snapshot.data!.sources ?? [];
+          final newsSources = snapshot.data?.sources ?? [];
           return DefaultTabController(
             length: newsSources.length,
             child: Scaffold(
@@ -38,7 +38,7 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
               ),
               drawer: CustomDrawer(),
               body: TabBarView(
-                children: newsSources.map((e) => NewsListView()).toList(),
+                children: newsSources.map((e) => NewsListView(sourceId: e.id)).toList(),
               ),
             ),
           );
