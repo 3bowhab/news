@@ -16,11 +16,21 @@ class NewsListView extends StatefulWidget {
 
 class _NewsListViewState extends State<NewsListView> {
   NewsViewModel newsViewModel = NewsViewModel();
+  int currentPage = 1;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    newsViewModel.fetchNewsBySourceId(widget.sourceId ?? '');
+    newsViewModel.fetchNewsBySourceId(widget.sourceId ?? '', currentPage);
+
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels != 0 &&
+          _scrollController.position.atEdge) {
+        currentPage++;
+        newsViewModel.fetchNewsBySourceId(widget.sourceId ?? '', currentPage);
+      }
+    });
   }
 
   @override
@@ -29,17 +39,22 @@ class _NewsListViewState extends State<NewsListView> {
       create: (context) => newsViewModel,
       child: Consumer<NewsViewModel>(
         builder: (context, newsViewModel, child) {
-          if (newsViewModel.articles != null && newsViewModel.articles!.isNotEmpty) {
+          if (newsViewModel.articles.isNotEmpty) {
             return ListView.separated(
               padding: 16.allPadding,
-              itemCount: newsViewModel.articles!.length,
+              controller: _scrollController,
+              itemCount: newsViewModel.hasMore
+                  ? newsViewModel.articles.length + 1
+                  : newsViewModel.articles.length,
               separatorBuilder: (context, index) {
                 return 16.verticalSizedBox;
               },
               itemBuilder: (context, index) {
-                return NewsItem(
-                  article: newsViewModel.articles![index],
-                );
+                if (index < newsViewModel.articles.length) {
+                  return NewsItem(article: newsViewModel.articles[index]);
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
               },
             );
           } else if (newsViewModel.errorMessage.isNotEmpty) {
@@ -52,7 +67,10 @@ class _NewsListViewState extends State<NewsListView> {
                   16.verticalSizedBox,
                   ElevatedButton(
                     onPressed: () {
-                      newsViewModel.fetchNewsBySourceId(widget.sourceId ?? '');
+                      newsViewModel.fetchNewsBySourceId(
+                        widget.sourceId ?? '',
+                        currentPage,
+                      );
                     },
                     child: const Text('Retry'),
                   ),
@@ -60,7 +78,6 @@ class _NewsListViewState extends State<NewsListView> {
               ),
             );
           } else {
-            newsViewModel.fetchNewsBySourceId(widget.sourceId ?? '');
             return const Center(child: CircularProgressIndicator());
           }
         },

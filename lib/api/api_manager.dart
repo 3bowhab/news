@@ -33,11 +33,11 @@ class ApiManager {
     }
   }
 
-  Future<NewsRespnse> getNewsBySource(String sourceId) async {
+  Future<NewsRespnse> getNewsBySource(String sourceId, int page) async {
     try {
       final response = await dio.get(
         '/v2/top-headlines',
-        queryParameters: {'sources': sourceId},
+        queryParameters: {'sources': sourceId, 'pageSize': 3, 'page': '$page'},
       );
       return NewsRespnse.fromJson(response.data);
     } on DioException catch (e) {
