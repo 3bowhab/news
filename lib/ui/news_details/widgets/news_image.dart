@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news/core/extensions/responsive_size_extension.dart';
+import 'package:news/core/theme/app_colors.dart';
 import 'package:news/ui/news_details/widgets/news_place_holder.dart';
 
 class NewsImage extends StatelessWidget {
@@ -23,9 +24,14 @@ class NewsImage extends StatelessWidget {
               fit: BoxFit.cover,
               width: double.infinity,
               height: 200.height,
-              progressIndicatorBuilder: (_, __, ___) =>
-                  const Center(child: CircularProgressIndicator()),
-              errorWidget: (_, __, ___) => const NewsPlaceholder(),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  Container(
+                    height: 200.height,
+                    width: double.infinity,
+                    color: AppColors.grey.withValues(alpha: 0.2),
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
+              errorWidget: (context, url, error) => const NewsPlaceholder(),
             )
           : const NewsPlaceholder(),
     );

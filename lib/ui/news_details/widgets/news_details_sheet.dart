@@ -25,10 +25,18 @@ class NewsDetailsSheet extends StatelessWidget {
             NewsImage(imageUrl: imageUrl, isValidUrl: isValidUrl),
 
             10.verticalSizedBox,
-            Text(article.title ?? ''),
+            Text(
+              article.title ?? '',
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
+            ),
 
             10.verticalSizedBox,
-            Text(article.description ?? ''),
+            Text(
+              article.description ?? '',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
 
             10.verticalSizedBox,
             ElevatedButton(

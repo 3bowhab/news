@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/extensions/responsive_padding_extension.dart';
 import 'package:news/core/extensions/responsive_sized_box_extension.dart';
+import 'package:news/core/theme/app_colors.dart';
 import 'package:news/models/news_respnse/article.dart';
 import 'package:news/ui/news_details/widgets/news_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -50,9 +51,17 @@ class NewsCard extends StatelessWidget {
                   'By : ${article.author ?? 'Unknown'}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelMedium!.copyWith(color: AppColors.grey),
                 ),
               ),
-              Text(timeago.format(publishedAt)),
+              Text(
+                timeago.format(publishedAt),
+                style: Theme.of(
+                  context,
+                ).textTheme.labelMedium!.copyWith(color: AppColors.grey),
+              ),
             ],
           ),
         ],
