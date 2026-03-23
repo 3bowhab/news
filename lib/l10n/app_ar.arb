@@ -19,5 +19,6 @@
     "english": "الإنجليزية",
     "arabic": "العربية",
     "errorLoadingNews": "حدث خطأ أثناء تحميل الأخبار",
-    "noNewsAvailable": "لا توجد أخبار متاحة"
+    "noNewsAvailable": "لا توجد أخبار متاحة",
+    "viewFullArticel": "عرض المقالة الكاملة"
 }

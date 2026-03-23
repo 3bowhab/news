@@ -87,7 +87,7 @@ class AppTheme {
         backgroundColor: AppColors.mainDark,
         foregroundColor: AppColors.main,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        // minimumSize: Size(double.infinity, 48.height),
+        minimumSize: Size(double.infinity, 48.height),
       ),
     ),
 
@@ -140,6 +140,17 @@ class AppTheme {
         return const IconThemeData(color: AppColors.mainDark, size: 28);
       }),
     ),
+
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: AppColors.main,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
+    ),
   );
 
   // Dark Theme
@@ -184,7 +195,7 @@ class AppTheme {
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: AppColors.main,
       selectionColor: AppColors.main,
-      selectionHandleColor: AppColors.main, 
+      selectionHandleColor: AppColors.main,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -192,7 +203,11 @@ class AppTheme {
         backgroundColor: AppColors.main,
         foregroundColor: AppColors.mainDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        // minimumSize: Size(double.infinity, 48.height),
+        minimumSize: Size(double.infinity, 48.height),
+        textStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
       ),
     ),
 
@@ -256,6 +271,17 @@ class AppTheme {
         }
         return const IconThemeData(color: AppColors.mainDark, size: 28);
       }),
+    ),
+
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: AppColors.mainDark,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
     ),
   );
 }

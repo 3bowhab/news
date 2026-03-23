@@ -217,6 +217,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No news available'**
   String get noNewsAvailable;
+
+  /// No description provided for @viewFullArticel.
+  ///
+  /// In en, this message translates to:
+  /// **'View Full Article'**
+  String get viewFullArticel;
 }
 
 class _AppLocalizationsDelegate

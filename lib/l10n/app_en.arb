@@ -39,5 +39,7 @@
   "errorLoadingNews": "Error loading news",
   "@errorLoadingNews": {},
   "noNewsAvailable": "No news available",
-  "@noNewsAvailable": {}
+  "@noNewsAvailable": {},
+  "viewFullArticel": "View Full Article",
+  "@viewFullArticel": {}
 }

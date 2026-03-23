@@ -68,4 +68,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noNewsAvailable => 'No news available';
+
+  @override
+  String get viewFullArticel => 'View Full Article';
 }

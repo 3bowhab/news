@@ -21,13 +21,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(title),
       actions: [
-        if (!isHome)
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.settingsView);
-            },
-          ),
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.settingsView);
+          },
+        ),
       ],
       bottom: !isHome
           ? TabBar(
