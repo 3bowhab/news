@@ -34,6 +34,12 @@ class _NewsListViewState extends State<NewsListView> {
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => newsViewModel,

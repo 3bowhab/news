@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:news/core/constants/app_routes.dart';
 import 'package:news/models/news_sources/source.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool isHome;
   final List<Source>? newsSources;
-  const CustomAppBar({super.key, required this.title, this.isHome = false, this.newsSources});
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.isHome = false,
+    this.newsSources,
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(!isHome ? 100 : kToolbarHeight);
@@ -19,14 +25,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              // Handle search button press
+              Navigator.pushNamed(context, AppRoutes.settingsView);
             },
           ),
       ],
-      bottom: !isHome 
+      bottom: !isHome
           ? TabBar(
               isScrollable: true,
-              tabs: newsSources?.map((source) => Tab(text: source.name)).toList() ?? [],
+              tabs:
+                  newsSources
+                      ?.map((source) => Tab(text: source.name))
+                      .toList() ??
+                  [],
             )
           : null,
     );

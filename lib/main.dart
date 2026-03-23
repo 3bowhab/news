@@ -6,6 +6,7 @@ import 'package:news/core/theme/app_theme.dart';
 import 'package:news/l10n/app_localizations.dart';
 import 'package:news/providers/language_provider.dart';
 import 'package:news/providers/theme_provider.dart';
+import 'package:news/ui/search/view/search_view.dart';
 import 'package:news/ui/home/view/home_view.dart';
 import 'package:news/ui/news_details/views/news_details_view.dart';
 import 'package:provider/provider.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.homeView: (context) => const HomeView(),
         AppRoutes.newsDetailsView: (context) => const NewsDetailsView(),
+        AppRoutes.settingsView: (context) => const SearchView(),
       },
     );
   }

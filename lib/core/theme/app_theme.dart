@@ -24,6 +24,8 @@ class AppTheme {
   static ThemeData get lightTheme => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    scaffoldBackgroundColor: AppColors.main,
+
     colorScheme: const ColorScheme.light(
       primary: AppColors.main,
       // onPrimary: AppColors.white,
@@ -39,7 +41,7 @@ class AppTheme {
       // onPrimaryContainer: AppColors.mainText,
       // onSecondaryContainer: AppColors.background,
     ),
-    scaffoldBackgroundColor: AppColors.main,
+
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.main,
       elevation: 0,
@@ -47,6 +49,7 @@ class AppTheme {
       scrolledUnderElevation: 0,
       surfaceTintColor: Colors.transparent,
     ),
+
     textTheme: TextTheme(
       headlineLarge: TextStyle(color: AppColors.mainDark),
       headlineMedium: TextStyle(color: AppColors.mainDark),
@@ -59,6 +62,26 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.mainDark),
       bodySmall: TextStyle(color: AppColors.mainDark),
     ),
+
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.mainDark,
+      selectionColor: AppColors.mainDark,
+      selectionHandleColor: AppColors.mainDark,
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      suffixIconColor: AppColors.mainDark,
+      hintStyle: TextStyle(color: AppColors.grey),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.mainDark),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.mainDark),
+      ),
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.mainDark,
@@ -67,6 +90,7 @@ class AppTheme {
         // minimumSize: Size(double.infinity, 48.height),
       ),
     ),
+
     tabBarTheme: TabBarThemeData(
       tabAlignment: TabAlignment.start,
       dividerHeight: 0,
@@ -157,12 +181,31 @@ class AppTheme {
       bodySmall: TextStyle(color: AppColors.main),
     ),
 
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.main,
+      selectionColor: AppColors.main,
+      selectionHandleColor: AppColors.main, 
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.main,
         foregroundColor: AppColors.mainDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         // minimumSize: Size(double.infinity, 48.height),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      suffixIconColor: AppColors.main,
+      hintStyle: TextStyle(color: AppColors.grey),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.main),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.main),
       ),
     ),
 
