@@ -15,7 +15,6 @@ class ApiManager {
     ),
   );
 
-
   Future<NewsSources> getNewssources({String? category}) async {
     try {
       final response = await dio.get(
@@ -31,10 +30,9 @@ class ApiManager {
         throw Exception(e.message ?? 'Network Error');
       }
     } catch (e) {
-      throw Exception('Unexpected Error: $e');
+      throw Exception('Unknown Error: $e');
     }
   }
-
 
   Future<NewsRespnse> getNewsBySource(String sourceId, int page) async {
     try {
@@ -54,7 +52,6 @@ class ApiManager {
       throw Exception('Unexpected Error: $e');
     }
   }
-
 
   Future<NewsRespnse> getNewsByQuery(String query, int page) async {
     try {

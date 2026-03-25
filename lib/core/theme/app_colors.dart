@@ -6,4 +6,5 @@ class AppColors {
   static const Color main = Color(0xFFFFFFFF);
   static const Color mainDark = Color(0xFF171717);
   static const Color grey = Color(0xFFA0A0A0);
+  static const Color loading = Colors.green;
 }

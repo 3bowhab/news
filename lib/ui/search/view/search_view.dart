@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news/core/constants/app_padding.dart';
 import 'package:news/core/extensions/responsive_padding_extension.dart';
 import 'package:news/core/extensions/responsive_sized_box_extension.dart';
+import 'package:news/l10n/app_localizations.dart';
 import 'package:news/ui/news_details/widgets/news_item.dart';
 import 'package:news/ui/search/view_model/search_view_model.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +49,7 @@ class _SearchViewState extends State<SearchView> {
             searchViewModel.onsearchWithDebouncing(currentQuery, currentPage);
           },
           decoration: InputDecoration(
-            hintText: 'Search...',
+            hintText: '${AppLocalizations.of(context)!.search} ...',
             suffixIcon: Icon(Icons.search),
           ),
         ),
@@ -80,13 +81,17 @@ class _SearchViewState extends State<SearchView> {
                 padding: AppPadding.view,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(searchViewModel.errorMessage),
-                  ],
+                  children: [Text(searchViewModel.errorMessage)],
                 ),
               );
             } else {
-              return Center(child: const Text('Search for news articles using the search bar above.'));
+              return Center(
+                child: Text(
+                  AppLocalizations.of(
+                    context,
+                  )!.searchForNewsArticlesUsingTheSearchBarAbove,
+                ),
+              );
             }
           },
         ),

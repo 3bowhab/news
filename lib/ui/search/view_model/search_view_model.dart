@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:news/api/api_manager.dart';
 import 'package:news/models/news_respnse/article.dart';

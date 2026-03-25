@@ -20,5 +20,14 @@
     "arabic": "العربية",
     "errorLoadingNews": "حدث خطأ أثناء تحميل الأخبار",
     "noNewsAvailable": "لا توجد أخبار متاحة",
-    "viewFullArticel": "عرض المقالة الكاملة"
+    "viewFullArticel": "عرض المقالة الكاملة",
+    "fullArticle": "المقالة الكاملة",
+    "nopreviouspage": "لا توجد صفحة سابقة",
+    "nonextpage": "لا توجد صفحة تالية",
+    "noURLprovidedforWebView": "لم يتم توفير عنوان URL لعرض الويب",
+    "search": "بحث",
+    "searchForNewsArticlesUsingTheSearchBarAbove": "ابحث عن مقالات إخبارية باستخدام شريط البحث أعلاه",
+    "by": "بواسطة",
+    "unknown": "غير معروف",
+    "retry": "إعادة محاولة"
 }

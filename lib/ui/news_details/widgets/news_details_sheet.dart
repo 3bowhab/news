@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/core/constants/app_routes.dart';
 import 'package:news/core/extensions/responsive_padding_extension.dart';
 import 'package:news/core/extensions/responsive_sized_box_extension.dart';
 import 'package:news/l10n/app_localizations.dart';
@@ -40,7 +41,9 @@ class NewsDetailsSheet extends StatelessWidget {
 
             10.verticalSizedBox,
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.articleWebView, arguments: article.url);
+              },
               child: Text(AppLocalizations.of(context)!.viewFullArticel),
             ),
           ],

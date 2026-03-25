@@ -223,6 +223,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'View Full Article'**
   String get viewFullArticel;
+
+  /// No description provided for @fullArticle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Article'**
+  String get fullArticle;
+
+  /// No description provided for @nopreviouspage.
+  ///
+  /// In en, this message translates to:
+  /// **'No previous page'**
+  String get nopreviouspage;
+
+  /// No description provided for @nonextpage.
+  ///
+  /// In en, this message translates to:
+  /// **'No next page'**
+  String get nonextpage;
+
+  /// No description provided for @noURLprovidedforWebView.
+  ///
+  /// In en, this message translates to:
+  /// **'No URL provided for WebView'**
+  String get noURLprovidedforWebView;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchForNewsArticlesUsingTheSearchBarAbove.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for news articles using the search bar above'**
+  String get searchForNewsArticlesUsingTheSearchBarAbove;
+
+  /// No description provided for @by.
+  ///
+  /// In en, this message translates to:
+  /// **'By'**
+  String get by;
+
+  /// No description provided for @unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate

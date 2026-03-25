@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news/core/constants/app_padding.dart';
 import 'package:news/core/extensions/responsive_padding_extension.dart';
 import 'package:news/core/extensions/responsive_sized_box_extension.dart';
+import 'package:news/l10n/app_localizations.dart';
 import 'package:news/ui/news_details/view_model/news_view_model.dart';
 import 'package:news/ui/news_details/widgets/news_item.dart';
 import 'package:provider/provider.dart';
@@ -78,7 +79,7 @@ class _NewsListViewState extends State<NewsListView> {
                         currentPage,
                       );
                     },
-                    child: const Text('Retry'),
+                    child: Text(AppLocalizations.of(context)!.retry),
                   ),
                 ],
               ),
