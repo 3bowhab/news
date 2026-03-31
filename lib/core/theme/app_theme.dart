@@ -24,6 +24,8 @@ class AppTheme {
   static ThemeData get lightTheme => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    scaffoldBackgroundColor: AppColors.main,
+
     colorScheme: const ColorScheme.light(
       primary: AppColors.main,
       // onPrimary: AppColors.white,
@@ -39,7 +41,7 @@ class AppTheme {
       // onPrimaryContainer: AppColors.mainText,
       // onSecondaryContainer: AppColors.background,
     ),
-    scaffoldBackgroundColor: AppColors.main,
+
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.main,
       elevation: 0,
@@ -47,11 +49,10 @@ class AppTheme {
       scrolledUnderElevation: 0,
       surfaceTintColor: Colors.transparent,
     ),
+
     textTheme: TextTheme(
       headlineLarge: TextStyle(color: AppColors.mainDark),
-      headlineMedium: TextStyle(
-        color: AppColors.mainDark,
-      ),
+      headlineMedium: TextStyle(color: AppColors.mainDark),
       headlineSmall: TextStyle(color: AppColors.mainDark),
       labelLarge: TextStyle(color: AppColors.mainDark),
       titleLarge: TextStyle(color: AppColors.mainDark),
@@ -61,25 +62,52 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.mainDark),
       bodySmall: TextStyle(color: AppColors.mainDark),
     ),
+
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.mainDark,
+      selectionColor: AppColors.mainDark,
+      selectionHandleColor: AppColors.mainDark,
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      suffixIconColor: AppColors.mainDark,
+      hintStyle: TextStyle(color: AppColors.grey),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.mainDark),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.mainDark),
+      ),
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.main,
-        foregroundColor: AppColors.mainDark,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        backgroundColor: AppColors.mainDark,
+        foregroundColor: AppColors.main,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         minimumSize: Size(double.infinity, 48.height),
       ),
     ),
+
     tabBarTheme: TabBarThemeData(
       tabAlignment: TabAlignment.start,
       dividerHeight: 0,
       indicatorColor: AppColors.mainDark,
       unselectedLabelColor: AppColors.mainDark,
-      labelStyle: TextStyle(fontWeight: FontWeight.bold, color: AppColors.mainDark, fontSize: 16),
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: AppColors.mainDark,
+        fontSize: 16,
+      ),
     ),
 
     iconTheme: const IconThemeData(color: AppColors.main, size: 26),
+
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.mainDark,
+    ),
 
     dividerTheme: DividerThemeData(
       color: AppColors.mainDark,
@@ -112,8 +140,18 @@ class AppTheme {
         return const IconThemeData(color: AppColors.mainDark, size: 28);
       }),
     ),
-  );
 
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: AppColors.main,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
+    ),
+  );
 
   // Dark Theme
   static ThemeData get darkTheme => ThemeData(
@@ -153,13 +191,36 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.main),
       bodySmall: TextStyle(color: AppColors.main),
     ),
-  
+
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.main,
+      selectionColor: AppColors.main,
+      selectionHandleColor: AppColors.main,
+    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.mainDark,
-        foregroundColor: AppColors.main,
+        backgroundColor: AppColors.main,
+        foregroundColor: AppColors.mainDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         minimumSize: Size(double.infinity, 48.height),
+        textStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationThemeData(
+      suffixIconColor: AppColors.main,
+      hintStyle: TextStyle(color: AppColors.grey),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.main),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: AppColors.main),
       ),
     ),
 
@@ -167,10 +228,18 @@ class AppTheme {
       tabAlignment: TabAlignment.start,
       dividerHeight: 0,
       unselectedLabelColor: AppColors.main,
-      labelStyle: TextStyle(fontWeight: FontWeight.bold, color: AppColors.main, fontSize: 16),
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: AppColors.main,
+        fontSize: 16,
+      ),
     ),
 
     iconTheme: const IconThemeData(color: AppColors.mainDark, size: 26),
+
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: AppColors.main,
+    ),
 
     dividerTheme: DividerThemeData(
       color: AppColors.main,
@@ -202,6 +271,17 @@ class AppTheme {
         }
         return const IconThemeData(color: AppColors.mainDark, size: 28);
       }),
+    ),
+
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: AppColors.mainDark,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
     ),
   );
 }

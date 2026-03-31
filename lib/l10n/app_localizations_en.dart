@@ -62,4 +62,41 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get arabic => 'Arabic';
+
+  @override
+  String get errorLoadingNews => 'Error loading news';
+
+  @override
+  String get noNewsAvailable => 'No news available';
+
+  @override
+  String get viewFullArticel => 'View Full Article';
+
+  @override
+  String get fullArticle => 'Full Article';
+
+  @override
+  String get nopreviouspage => 'No previous page';
+
+  @override
+  String get nonextpage => 'No next page';
+
+  @override
+  String get noURLprovidedforWebView => 'No URL provided for WebView';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get searchForNewsArticlesUsingTheSearchBarAbove =>
+      'Search for news articles using the search bar above';
+
+  @override
+  String get by => 'By';
+
+  @override
+  String get unknown => 'Unknown';
+
+  @override
+  String get retry => 'Retry';
 }

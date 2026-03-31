@@ -6,13 +6,18 @@ import 'package:news/l10n/app_localizations.dart';
 
 class ViewAllButton extends StatelessWidget {
   final bool isRight;
-  const ViewAllButton({super.key, required this.isRight});
+  final int index;
+  const ViewAllButton({super.key, required this.isRight, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.newsDetailsView);
+        Navigator.pushNamed(
+          context,
+          AppRoutes.newsDetailsView,
+          arguments: index,
+        );
       },
       child: Container(
         height: 54.height,

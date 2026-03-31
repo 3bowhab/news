@@ -62,4 +62,41 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get arabic => 'العربية';
+
+  @override
+  String get errorLoadingNews => 'حدث خطأ أثناء تحميل الأخبار';
+
+  @override
+  String get noNewsAvailable => 'لا توجد أخبار متاحة';
+
+  @override
+  String get viewFullArticel => 'عرض المقالة الكاملة';
+
+  @override
+  String get fullArticle => 'المقالة الكاملة';
+
+  @override
+  String get nopreviouspage => 'لا توجد صفحة سابقة';
+
+  @override
+  String get nonextpage => 'لا توجد صفحة تالية';
+
+  @override
+  String get noURLprovidedforWebView => 'لم يتم توفير عنوان URL لعرض الويب';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get searchForNewsArticlesUsingTheSearchBarAbove =>
+      'ابحث عن مقالات إخبارية باستخدام شريط البحث أعلاه';
+
+  @override
+  String get by => 'بواسطة';
+
+  @override
+  String get unknown => 'غير معروف';
+
+  @override
+  String get retry => 'إعادة محاولة';
 }
