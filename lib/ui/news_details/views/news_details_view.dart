@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news/api/api_manager.dart';
 import 'package:news/core/constants/app_padding.dart';
 import 'package:news/core/extensions/responsive_sized_box_extension.dart';
+import 'package:news/models/news_category_model.dart';
 import 'package:news/models/news_sources/news_sources.dart';
 import 'package:news/l10n/app_localizations.dart';
 import 'package:news/ui/app_bar/custom_app_bar.dart';
@@ -17,11 +18,15 @@ class NewsDetailsView extends StatefulWidget {
 
 class _NewsDetailsViewState extends State<NewsDetailsView> {
   Future<NewsSources>? newsSource;
+  NewsCategoryModel? category;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final args = ModalRoute.of(context)?.settings.arguments as String?;
-    newsSource ??= ApiManager().getNewssources(category: args);
+    final args = ModalRoute.of(context)?.settings.arguments as int;
+    List<NewsCategoryModel> newsTypes = NewsCategoryModel.getNewsTypes(context);
+    category = newsTypes[args];
+    newsSource ??= ApiManager().getNewssources(category: category!.id);
   }
 
   @override
@@ -34,10 +39,7 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
           return DefaultTabController(
             length: newsSources.length,
             child: Scaffold(
-              appBar: CustomAppBar(
-                title: AppLocalizations.of(context)!.helloWorld,
-                newsSources: newsSources,
-              ),
+              appBar: CustomAppBar(title: category?.title ?? 'News', newsSources: newsSources),
               drawer: CustomDrawer(),
               body: SafeArea(
                 child: TabBarView(
@@ -84,7 +86,7 @@ class _NewsDetailsViewState extends State<NewsDetailsView> {
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  newsSource = ApiManager().getNewssources();
+                  newsSource = ApiManager().getNewssources(category: category!.id);
                 });
               },
               child: const Text('Retry'),

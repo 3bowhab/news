@@ -6,8 +6,8 @@ import 'package:news/l10n/app_localizations.dart';
 
 class ViewAllButton extends StatelessWidget {
   final bool isRight;
-  final String? category;
-  const ViewAllButton({super.key, required this.isRight, this.category});
+  final int index;
+  const ViewAllButton({super.key, required this.isRight, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ViewAllButton extends StatelessWidget {
         Navigator.pushNamed(
           context,
           AppRoutes.newsDetailsView,
-          arguments: category,
+          arguments: index,
         );
       },
       child: Container(

@@ -44,7 +44,7 @@ class NewsTypeCard extends StatelessWidget {
                 ),
               ),
               40.verticalSizedBox,
-              ViewAllButton(isRight: isRight, category: newsType.id),
+              ViewAllButton(isRight: isRight, index: index),
             ],
           ),
         ),
